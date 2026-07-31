@@ -478,3 +478,40 @@ body{transition:background-color .3s,color .3s}
   .nav__links.is-open a{width:100%;padding:11px 0}
   .nav__lang.is-open{position:absolute;display:flex!important;top:360px;left:28px;z-index:2}
 }
+
+/* ---------- Header v2: floating, borderless brand treatment ---------- */
+.nav{top:14px;left:50%;right:auto;width:min(calc(100% - 32px),1240px);transform:translateX(-50%);border:1px solid rgba(255,255,255,.13);border-radius:20px;background:rgba(7,12,29,.82);box-shadow:0 18px 60px rgba(0,0,0,.24);overflow:visible}
+.nav__inner{height:76px;padding-left:22px;padding-right:14px}
+.nav__logo{width:205px;flex:0 0 auto;overflow:hidden}
+.nav__logo img{width:100%;height:auto;filter:brightness(0) invert(1);opacity:.96;transition:opacity .2s,transform .2s}
+.nav__logo:hover img{opacity:1;transform:translateY(-1px)}
+.nav__logo-chip{display:contents;background:none;padding:0}
+.nav__links{gap:26px}
+.nav__links a{position:relative;color:#c7d0ed}
+.nav__links a::after{content:"";position:absolute;left:0;right:100%;bottom:-9px;height:2px;border-radius:2px;background:var(--cyan-400);transition:right .25s var(--ease)}
+.nav__links a:hover::after{right:0}
+.nav__cta{gap:12px}
+.nav__cta>.btn{border-radius:12px;padding:12px 18px;box-shadow:0 10px 30px rgba(43,76,255,.32)}
+.nav__lang{padding:4px;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:rgba(255,255,255,.04)}
+.nav__lang a{border:0;border-radius:7px}
+.theme-toggle{border-radius:11px}
+
+/* Explicit contrast fixes for every dark surface */
+.section--dark .solution p,.section--dark .solution li,.section--ink p,.section--ink li{color:var(--text-on-dark-dim)}
+.section--dark .solution h3,.section--dark .solution li strong,.section--ink strong{color:var(--text-on-dark)}
+.section--dark .solution__tag{color:var(--cyan-400)}
+.section--dark .solution ul li::before{background:var(--cyan-400)}
+.section--dark .solution{border-color:rgba(255,255,255,.1)}
+[data-theme="dark"] .about p,[data-theme="dark"] .expert-card p,[data-theme="dark"] .team-card p,[data-theme="dark"] .stat-strip__label,[data-theme="dark"] .section-head p{color:var(--text-ink-dim)}
+[data-theme="dark"] .expert-card h3,[data-theme="dark"] .team-card h4,[data-theme="dark"] .about p strong{color:var(--text-ink)}
+[data-theme="dark"] .btn-ghost:not(.on-dark .btn-ghost){border-color:var(--line-soft);color:var(--text-ink)}
+
+@media (max-width:1100px){.nav__links{gap:18px}.nav__links a{font-size:13px}.nav__logo{width:172px}.nav__cta>.btn{display:none}}
+@media (max-width:760px){
+  .nav{top:10px;width:calc(100% - 20px);border-radius:16px}
+  .nav__inner{height:66px;padding:0 16px}
+  .nav__logo{width:164px}
+  .nav__links.is-open{top:74px;left:-1px;width:calc(100% + 2px);border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(5,7,15,.98);box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .nav__lang.is-open{top:365px;left:20px}
+  .theme-toggle{width:38px;height:38px}
+}
