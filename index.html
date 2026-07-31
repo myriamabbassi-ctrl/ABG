@@ -54,7 +54,7 @@
 
 <header class="nav">
   <div class="container nav__inner">
-    <a href="#top" class="nav__logo"><span class="nav__mark" aria-hidden="true"></span>ABG <span>Digital Solutions</span></a>
+    <a href="#top" class="nav__logo"><span class="nav__logo-chip"><img src="/assets/img/logo.png" alt="ABG Digital Solutions" width="140" height="30"></span></a>
     <nav class="nav__links" aria-label="Navigation principale">
       <a href="#apropos">À propos</a>
       <a href="#expertise">Expertise</a>
@@ -196,13 +196,8 @@
           </ul>
           <span class="solution__badge">Objectif : <b>fluidifier</b> le paiement des soins et <b>sécuriser</b> les flux</span>
         </div>
-        <div class="solution__visual mock">
-          <div class="mock-phone">
-            <div class="mock-phone__notch"></div>
-            <div class="mock-phone__row"><span>Centre Hospitalier</span><span>253 700 F</span></div>
-            <div class="mock-phone__row"><span>Pharmacie du Centre</span><span>15 800 F</span></div>
-            <div class="mock-phone__pay">PAYER LA FACTURE</div>
-          </div>
+        <div class="solution__visual mock-shot">
+          <img src="/assets/img/yeli-mockup.jpg" alt="Interface de l'application Yeli, paiement instantané de factures de santé" loading="lazy" width="427" height="548">
         </div>
       </div>
 
@@ -218,12 +213,8 @@
             <li>Interopérabilité avec CMU, assurances et systèmes existants</li>
           </ul>
         </div>
-        <div class="solution__visual mock">
-          <div class="mock-dash">
-            <div class="mock-dash__bar"><span class="mock-dash__dot"></span>Hospital &amp; Research Centre</div>
-            <div class="mock-dash__cols"><i style="height:40%"></i><i style="height:70%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:60%"></i><i style="height:35%"></i></div>
-            <div class="mock-dash__foot"><span>Recettes</span><span>Consultations</span><span>Admissions</span></div>
-          </div>
+        <div class="solution__visual mock-shot">
+          <img src="/assets/img/parcours-patient-mockup.jpg" alt="Tableau de bord du parcours patient : recettes, dépenses, planning hospitalier" loading="lazy" width="394" height="545">
         </div>
       </div>
 
@@ -240,12 +231,8 @@
             <li>Module de cartographie et imagerie satellite</li>
           </ul>
         </div>
-        <div class="solution__visual mock">
-          <div class="mock-dash">
-            <div class="mock-dash__bar"><span class="mock-dash__dot"></span>Suivi national des projets</div>
-            <div class="mock-dash__cols"><i style="height:80%"></i><i style="height:50%"></i><i style="height:65%"></i><i style="height:45%"></i><i style="height:75%"></i><i style="height:30%"></i></div>
-            <div class="mock-dash__foot"><span>Décaissé</span><span>Restant</span><span>Alertes</span></div>
-          </div>
+        <div class="solution__visual mock-shot">
+          <img src="/assets/img/suivi-evaluation-mockup.jpg" alt="Tableau de bord de suivi-évaluation des projets financés, cartographie et indicateurs" loading="lazy" width="409" height="548">
         </div>
       </div>
 
@@ -283,10 +270,34 @@
         <p>ABG accompagne entreprises, administrations et institutions dans la refonte de leurs processus métiers grâce au numérique — du diagnostic à l'adoption durable.</p>
       </div>
       <div class="process" data-reveal>
-        <div class="process__step"><div class="process__num">01</div><h4>Diagnostic</h4><p>Cartographie des processus, identification des irritants et des gisements d'efficacité.</p></div>
-        <div class="process__step"><div class="process__num">02</div><h4>Feuille de route</h4><p>Priorisation des chantiers et définition d'une trajectoire de digitalisation réaliste.</p></div>
-        <div class="process__step"><div class="process__num">03</div><h4>Déploiement</h4><p>Mise en œuvre des outils digitaux, dématérialisation et intégration des systèmes.</p></div>
-        <div class="process__step"><div class="process__num">04</div><h4>Accompagnement</h4><p>Formation des équipes, conduite du changement et adoption durable.</p></div>
+        <div class="process__step">
+          <div class="process__head">
+            <div class="icon-badge"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><line x1="20" y1="20" x2="14.5" y2="14.5"/><path d="M10 7.2v5.6M8.3 8.4c0-.9.8-1.6 1.7-1.6s1.7.6 1.7 1.4-.8 1-1.7 1-1.7.4-1.7 1.2.8 1.4 1.7 1.4 1.7-.7 1.7-1.6" stroke-width="1.2"/></svg></div>
+            <span class="process__num">01</span>
+          </div>
+          <h4>Diagnostic</h4><p>Cartographie des processus, identification des irritants et des gisements d'efficacité.</p>
+        </div>
+        <div class="process__step">
+          <div class="process__head">
+            <div class="icon-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" stroke-dasharray="2.2 2.2"/><circle cx="12" cy="12" r="2.5"/></svg></div>
+            <span class="process__num">02</span>
+          </div>
+          <h4>Feuille de route</h4><p>Priorisation des chantiers et définition d'une trajectoire de digitalisation réaliste.</p>
+        </div>
+        <div class="process__step">
+          <div class="process__head">
+            <div class="icon-badge"><svg viewBox="0 0 24 24"><path d="M7.5 17.5a4 4 0 01-.5-7.9 5 5 0 019.6-1.8A4.2 4.2 0 0119 16.5"/><path d="M12 20v-7M9 15.5L12 12.5l3 3"/></svg></div>
+            <span class="process__num">03</span>
+          </div>
+          <h4>Déploiement</h4><p>Mise en œuvre des outils digitaux, dématérialisation et intégration des systèmes.</p>
+        </div>
+        <div class="process__step">
+          <div class="process__head">
+            <div class="icon-badge"><svg viewBox="0 0 24 24"><path d="M12 4 L21 8.5 L12 13 L3 8.5 Z"/><path d="M7 10.3v4c0 1.4 2.2 2.7 5 2.7s5-1.3 5-2.7v-4"/><path d="M21 8.5v5"/></svg></div>
+            <span class="process__num">04</span>
+          </div>
+          <h4>Accompagnement</h4><p>Formation des équipes, conduite du changement et adoption durable.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -302,10 +313,25 @@
           <li>Sensibilisation dirigeants — enjeux, opportunités et risques de l'IA</li>
           <li>Ateliers pratiques équipes — outils d'IA générative et d'automatisation</li>
           <li>Parcours techniques — intégration, données et déploiement de modèles</li>
-          <li>Automatisation des workflows documentaires et tâches répétitives</li>
-          <li>Tableaux de bord intelligents et analyse prédictive</li>
-          <li>IA responsable — supervision humaine des décisions critiques</li>
         </ul>
+        <div class="ai-grid">
+          <div class="ai-card">
+            <div class="icon-badge icon-badge--dark"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0114-5.3M20 12a8 8 0 01-14 5.3"/><path d="M18 4v4h-4M6 20v-4h4"/></svg></div>
+            <h4>Automatisation</h4><p>Automatisation des tâches répétitives et des workflows documentaires par l'IA.</p>
+          </div>
+          <div class="ai-card">
+            <div class="icon-badge icon-badge--dark"><svg viewBox="0 0 24 24"><path d="M4 17 L9.5 11 L13 14 L20 6"/><path d="M15 6h5v5"/></svg></div>
+            <h4>Analyse prédictive</h4><p>Modèles prédictifs pour anticiper la demande, les risques et les besoins opérationnels.</p>
+          </div>
+          <div class="ai-card">
+            <div class="icon-badge icon-badge--dark"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1"/><rect x="13.5" y="4" width="6.5" height="4" rx="1"/><rect x="13.5" y="10" width="6.5" height="10" rx="1"/><rect x="4" y="12.5" width="6.5" height="7.5" rx="1"/></svg></div>
+            <h4>Tableaux de bord intelligents</h4><p>Indicateurs consolidés et recommandations générées automatiquement pour la décision.</p>
+          </div>
+          <div class="ai-card">
+            <div class="icon-badge icon-badge--dark"><svg viewBox="0 0 24 24"><path d="M12 3 L20 6.2 V11 c0 5.2-3.8 8.6-8 9.8-4.2-1.2-8-4.6-8-9.8V6.2 Z"/><path d="M8.7 12 l2.3 2.3 4.3-4.6"/></svg></div>
+            <h4>IA responsable</h4><p>Déploiements sécurisés, souverains et conformes, avec supervision humaine des décisions critiques.</p>
+          </div>
+        </div>
       </div>
       <div class="benefits__panel" data-reveal>
         <div class="figure"><strong>3</strong><span>parcours de formation : dirigeants, équipes métiers, équipes IT</span></div>
@@ -393,6 +419,7 @@
   <footer class="footer" id="contact">
     <div class="container footer__grid">
       <div class="footer__intro" data-reveal>
+        <img src="/assets/img/logo.png" alt="ABG Digital Solutions" class="footer__logo">
         <p class="eyebrow on-dark">Contact</p>
         <h2>Parlons de votre transformation digitale</h2>
         <p>Décrivez-nous votre projet — santé, secteur public, fintech ou transformation digitale &amp; IA — et notre équipe reviendra vers vous rapidement.</p>

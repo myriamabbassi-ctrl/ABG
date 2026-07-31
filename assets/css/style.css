@@ -122,11 +122,33 @@ button{ font-family:inherit; cursor:pointer; }
   height:72px;
 }
 .nav__logo{
-  font-family:var(--font-display); font-weight:700; font-size:18px;
-  color:#fff; display:flex; align-items:center; gap:9px;
+  display:flex; align-items:center; gap:9px;
 }
-.nav__logo span{ color:var(--cyan-400); }
-.nav__mark{ width:11px; height:11px; background:var(--cyan-400); display:inline-block; }
+.nav__logo-chip{
+  background:#fff; border-radius:4px; padding:8px 12px; display:flex; align-items:center;
+  transition:transform .2s;
+}
+.nav__logo:hover .nav__logo-chip{ transform:translateY(-1px); }
+.nav__logo-chip img{ height:22px; width:auto; display:block; }
+.footer__logo{ height:26px; width:auto; margin-bottom:18px; filter:brightness(0) saturate(100%) invert(1); }
+
+/* ---------- Icon badges (reused from the ABG deck's own icon language) ---------- */
+.icon-badge{
+  width:52px; height:52px; border-radius:50%; background:var(--blue-600);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.icon-badge svg{ width:24px; height:24px; stroke:#fff; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.icon-badge--dark{ background:rgba(255,255,255,.08); border:1px solid var(--line); }
+
+/* ---------- Real product screenshots ---------- */
+.mock-shot{
+  background:var(--navy-900); border-radius:6px; padding:22px;
+  display:flex; align-items:center; justify-content:center; min-height:320px;
+}
+.mock-shot img{
+  max-width:100%; max-height:420px; border-radius:6px;
+  box-shadow:0 24px 48px -20px rgba(0,0,0,.6);
+}
 .nav__links{ display:flex; align-items:center; gap:34px; }
 .nav__links a{
   color:var(--text-on-dark-dim); font-size:14px; font-weight:500;
@@ -308,9 +330,17 @@ button{ font-family:inherit; cursor:pointer; }
 /* ---------- Process ---------- */
 .process{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
 .process__step{ background:var(--navy-900); padding:38px 28px; color:var(--text-on-dark); }
-.process__num{ font-family:var(--font-display); font-size:30px; color:var(--cyan-400); margin-bottom:20px; }
+.process__head{ display:flex; align-items:center; gap:14px; margin-bottom:22px; }
+.process__num{ font-family:var(--font-mono); font-size:12px; color:var(--cyan-400); letter-spacing:.08em; }
 .process__step h4{ font-size:17px; margin-bottom:10px; }
 .process__step p{ font-size:14px; color:var(--text-on-dark-dim); margin:0; }
+
+/* AI integration icon cards */
+.ai-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:26px; }
+.ai-card{ background:rgba(255,255,255,.02); padding:26px; }
+.ai-card .icon-badge{ margin-bottom:16px; }
+.ai-card h4{ font-size:15.5px; margin-bottom:8px; color:#fff; }
+.ai-card p{ font-size:13.5px; color:var(--text-on-dark-dim); margin:0; }
 
 /* ---------- Benefits (dematerialisation) ---------- */
 .benefits{ display:grid; grid-template-columns:1.2fr .8fr; gap:56px; align-items:center; }
@@ -418,7 +448,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .nav__toggle{ display:block; }
   .solution{ grid-template-columns:1fr; gap:32px; padding:48px 0; }
   .solution:nth-child(even) .solution__visual{ order:0; }
-  .grid-4, .grid-3, .grid-5, .stat-strip, .process, .team{ grid-template-columns:1fr; }
+  .grid-4, .grid-3, .grid-5, .stat-strip, .process, .team, .ai-grid{ grid-template-columns:1fr; }
   .form-row{ grid-template-columns:1fr; }
   .footer__bottom{ flex-direction:column; align-items:flex-start; }
   .hero{ padding:150px 0 80px; }
