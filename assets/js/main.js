@@ -1,6 +1,27 @@
 (function(){
   "use strict";
 
+  /* Persistent light/dark theme with system preference fallback */
+  var root = document.documentElement;
+  var themeButton = document.querySelector(".theme-toggle");
+  var storedTheme = localStorage.getItem("abg-theme");
+  var preferredTheme = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  var activeTheme = storedTheme || preferredTheme;
+  function applyTheme(theme){
+    root.setAttribute("data-theme", theme);
+    if (themeButton) {
+      var dark = theme === "dark";
+      themeButton.setAttribute("aria-pressed", String(dark));
+      themeButton.setAttribute("aria-label", dark ? "Activer le mode clair / Enable light mode" : "Activer le mode sombre / Enable dark mode");
+    }
+  }
+  applyTheme(activeTheme);
+  if (themeButton) themeButton.addEventListener("click", function(){
+    activeTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    localStorage.setItem("abg-theme", activeTheme);
+    applyTheme(activeTheme);
+  });
+
   /* Mobile nav toggle */
   var toggle = document.querySelector(".nav__toggle");
   var links  = document.querySelector(".nav__links");
@@ -9,6 +30,7 @@
     toggle.addEventListener("click", function(){
       var open = links.classList.toggle("is-open");
       toggle.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
       if (lang) lang.classList.toggle("is-open", open);
       links.style.display = open ? "flex" : "";
       if (lang) lang.style.display = open ? "flex" : "";
@@ -18,6 +40,7 @@
         links.style.display = "";
         if (lang) lang.style.display = "";
         toggle.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
       });
     });
   }
