@@ -22,6 +22,70 @@
     applyTheme(activeTheme);
   });
 
+  /* Animated particle-wave hero, inspired by flowing data surfaces */
+  var waveCanvas = document.querySelector("[data-particle-wave]");
+  if (waveCanvas) {
+    var waveContext = waveCanvas.getContext("2d");
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var waveFrame = 0;
+    var waveWidth = 0;
+    var waveHeight = 0;
+    var waveRatio = 1;
+    function sizeWave(){
+      var box = waveCanvas.getBoundingClientRect();
+      waveRatio = Math.min(window.devicePixelRatio || 1, 1.6);
+      waveWidth = Math.max(1, box.width);
+      waveHeight = Math.max(1, box.height);
+      waveCanvas.width = Math.round(waveWidth * waveRatio);
+      waveCanvas.height = Math.round(waveHeight * waveRatio);
+      waveContext.setTransform(waveRatio, 0, 0, waveRatio, 0, 0);
+    }
+    function drawWave(time){
+      var t = (time || 0) * 0.00028;
+      waveContext.clearRect(0, 0, waveWidth, waveHeight);
+      var compact = waveWidth < 760;
+      var stepX = compact ? 18 : 15;
+      var stepZ = compact ? 20 : 15;
+      var startX = compact ? waveWidth * 0.08 : waveWidth * 0.34;
+      var rows = Math.ceil(waveHeight / stepZ) + 14;
+      var cols = Math.ceil((waveWidth - startX) / stepX) + 12;
+      for (var row = 0; row < rows; row++) {
+        var depth = row / Math.max(1, rows - 1);
+        var perspectiveY = waveHeight * 0.16 + depth * waveHeight * 0.92;
+        var scale = 0.52 + depth * 1.05;
+        for (var col = 0; col < cols; col++) {
+          var xNorm = col / Math.max(1, cols - 1);
+          var x = startX + col * stepX * scale - depth * waveWidth * 0.10;
+          var crest = Math.sin(xNorm * 9.2 + t * 2.2 + row * 0.10) * (26 + depth * 34);
+          crest += Math.cos(xNorm * 4.4 - t * 1.4 + row * 0.055) * 22;
+          var y = perspectiveY + crest - Math.sin(row * 0.12 + t) * 10;
+          if (x < -10 || x > waveWidth + 10 || y < -10 || y > waveHeight + 10) continue;
+          var alpha = (0.10 + depth * 0.58) * (0.50 + 0.50 * Math.sin(xNorm * 3.14));
+          var cyanMix = Math.max(0, Math.min(1, depth * 1.1));
+          var red = Math.round(38 + 12 * cyanMix);
+          var green = Math.round(96 + 122 * cyanMix);
+          var blue = Math.round(255 - 18 * cyanMix);
+          waveContext.beginPath();
+          waveContext.fillStyle = "rgba(" + red + "," + green + "," + blue + "," + alpha.toFixed(3) + ")";
+          waveContext.arc(x, y, 0.7 + depth * 1.15, 0, Math.PI * 2);
+          waveContext.fill();
+        }
+      }
+      if (!reduceMotion && !document.hidden) waveFrame = requestAnimationFrame(drawWave);
+    }
+    sizeWave();
+    drawWave(0);
+    window.addEventListener("resize", function(){
+      cancelAnimationFrame(waveFrame);
+      sizeWave();
+      drawWave(0);
+    }, { passive:true });
+    document.addEventListener("visibilitychange", function(){
+      cancelAnimationFrame(waveFrame);
+      if (!document.hidden) drawWave(performance.now());
+    });
+  }
+
   /* Mobile nav toggle */
   var toggle = document.querySelector(".nav__toggle");
   var links  = document.querySelector(".nav__links");
